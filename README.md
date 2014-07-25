@@ -1,6 +1,6 @@
 # Isometric Titanium
 
-	This is just a placeholder for now around some thoughts about an experimental Ti.Next API.Nothing in this repo should be considered stable, possible, eventual or likely.
+> This is just a placeholder for now around some thoughts about an experimental Ti.Next API.Nothing in this repo should be considered stable, possible, eventual or likely.
 
 
 ## Uniform Core
