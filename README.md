@@ -25,6 +25,8 @@ The following would be provided by the Hyperloop compiler as part of the generat
 - Timers
 - Logging
 - Profiling / Debugging
+- Global scope support
+- Process API
 
 The generated implementations would be written in 100% portable native code as part of the compilation pipeline.
 
@@ -40,6 +42,7 @@ The Level 1 API would be 100% uniform (cross platform) and would be implemented 
 - UI Layout system
 - Basic UI primitives (window, view, colors, etc)
 - Localization
+- XML
 
 The Level 1 API would likely be the lowest level of the Ti.Next framework.  These APIs would either be generated or hand written and likely would be just packaged (possibly in a special way) as modules.
 
@@ -66,13 +69,13 @@ The syntax likely should also be part of the pre-processor.  For example, the fo
 
 Could still be written by the developer, however, the compiler might pre-process to something like:
 
-	var window = require('ti/ui/window')({backgroundColor:'red'});
+	var window = new (require('ti/ui/window'))({backgroundColor:'red'});
 
 In this way, the experience that developers currently have (and their representative code) could stay the same.  The compiler would know how to pull in the appropriate modules as needed as part of the build process.
 
 ## Async versus Sync
 
-Today, the Ti.Current API is synchronous for the most part.  This has provided a much more simple developer experience at the slight tradeoff in performance.  
+Today, the Ti.Current API is synchronous for the most part.  This has provided a much more simple developer experience at the slight tradeoff in performance.
 
 For Ti.Next, we should think hard about asynchronous APIs.  We could provide a promise style way to provide an easier API for developers.  We could also use the compiler to turn synchronous code into async code for execution (although, this could be itself a problem if not done well).
 
